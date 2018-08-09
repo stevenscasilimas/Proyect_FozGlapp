@@ -1,0 +1,15 @@
+<% flash.each do |key, value| %>
+    <div class="alert alert-success">
+          <a href="#" data-dismiss="alert">
+              <i class="fas fa-check-circle" style="color:#155724;">&nbsp;</i></a>
+                <%= value %>
+    </div>
+<% end %>
+
+<div class="text-center">
+<div class="container">
+<h2 class="jumbotron-heading">Gracias por su mensaje.</h2>
+<p class="lead text-muted">¡Estaremos contactándonos pronto con usted!</p>
+    <p><%= link_to 'Enviar un nuevo mensaje', new_contact_path, :class => 'btn btn-primary' %></p>
+    </div>
+</div>

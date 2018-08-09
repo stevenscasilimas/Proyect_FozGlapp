@@ -1,0 +1,37 @@
+<body class="bg-light">
+
+<h2 class="mt-5">Contáctenos</h2>
+	<p class="text-muted">Comparta con nosotros sus sugerencias, felicitaciones, reclamos o denuncias.</p>
+
+		<% flash.each do |key, value| %>
+		    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+		      <a href="#" data-dismiss="alert">
+		      	<i class="fas fa-exclamation-triangle" style="color:#856404;">&nbsp;</i></a>
+		        	<%= value %>
+		         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				 	<span aria-hidden="true">&times;</span>
+				 </button>
+		    </div>
+		<% end %>
+
+		<%= form_for @contact , :html => {:class => 'form-signin' } do |f| %>
+			<div>
+				<%= f.text_field :name, required: true, :class => 'form-control', :class => 'form-control form-signin-pass', :placeholder => 'Nombre y Apellidos' %>
+			</div>
+			<div class="form-group">
+				<%= f.email_field :email, required: true, :class => 'form-control form-signin-email', :placeholder => 'Correo electrónico' %>
+			</div>
+			<div class="form-group">
+				<%= f.label :message, 'Mensaje' %> <br>
+				<%= f.text_area :message, required: true, :class => 'form-control', :row => '3' %>
+			</div>
+			<div class="hidden">
+				<%= f.label :nickname %>
+				<%= f.text_field :nickname, hint: 'Dejese este campo en blanco' %>
+			</div>
+			<div class="text-center">
+				<%= f.submit 'Enviar mensaje', :class => 'btn btn-primary'%>
+			</div>
+
+		<% end %>
+</body>

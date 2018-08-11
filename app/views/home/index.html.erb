@@ -1,2 +1,24 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="text-center">
+  
+  
+   <div class="container">
+
+
+
+          <% if current_user %>
+              <h4>
+                  Bienvenido,&nbsp;<%= current_user.firstname %> </h4>
+              <% end %>
+          <p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+          Mauris pretium mollis sapien, id efficitur lorem. Integer viverra dignissim.</p>
+          <p>
+            <% if current_user %>
+              <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, :class => 'btn btn-secondary my-2' %>
+            <% else %>
+              <%= link_to 'Iniciar sesión', new_user_session_path, :class => 'btn btn-primary my-2' %>
+              <%= link_to 'Registrarse', new_user_registration_path, :class => 'btn btn-secondary my-2' %>
+            <% end %>
+          </p>
+         
+        </div>
+</div>
